@@ -1,0 +1,624 @@
+<!DOCTYPE html>
+<html lang="bg">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Анталавичев-2018 ЕООД — Климатици Mitsubishi Heavy Industries, Сандански</title>
+<meta name="description" content="Анталавичев-2018 ЕООД — продажба, монтаж и сервиз на климатици Mitsubishi Heavy Industries в Сандански и региона.">
+<style>
+  :root{
+    --blue:#0d47a1;
+    --lblue:#29b6f6;
+    --dark:#16213e;
+    --grey:#f4f6f8;
+    --text:#2b2b2b;
+    --muted:#6b7280;
+    --radius:10px;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{font-family:'Segoe UI',Arial,sans-serif;color:var(--text);line-height:1.6;background:#fff}
+  a{text-decoration:none;color:inherit}
+  .container{max-width:1180px;margin:0 auto;padding:0 20px}
+
+  /* Header */
+  .topbar{background:var(--dark);color:#fff;font-size:.85rem;padding:6px 0}
+  .topbar .container{display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px}
+  .topbar a{color:#fff}
+  header{background:#fff;border-bottom:3px solid var(--blue);position:sticky;top:0;z-index:100;box-shadow:0 2px 8px rgba(0,0,0,.06)}
+  .header-inner{display:flex;align-items:center;justify-content:space-between;padding:12px 0;gap:20px}
+  .logo{display:flex;align-items:center;gap:12px}
+  .logo svg{width:52px;height:52px;flex-shrink:0}
+  .logo-text b{display:block;font-size:1.12rem;line-height:1.2;color:var(--blue)}
+  .logo-text span{font-size:.7rem;color:var(--muted);text-transform:uppercase;letter-spacing:.5px}
+  nav ul{display:flex;list-style:none;gap:6px;flex-wrap:wrap}
+  nav a{padding:9px 15px;border-radius:6px;font-weight:600;font-size:.95rem;transition:.2s}
+  nav a:hover,nav a.active{background:var(--blue);color:#fff}
+  .burger{display:none;background:none;border:none;font-size:1.7rem;cursor:pointer}
+
+  /* Hero */
+  .hero{background:linear-gradient(120deg,#0d47a1 0%,#16213e 60%,#0f3460 100%);color:#fff;padding:80px 0;position:relative;overflow:hidden}
+  .hero::after{content:"❄";position:absolute;right:-40px;top:-60px;font-size:22rem;opacity:.07}
+  .hero h1{font-size:2.5rem;line-height:1.2;max-width:680px}
+  .hero h1 span{color:var(--lblue)}
+  .hero p{margin:18px 0 30px;max-width:580px;color:#cfd8e3;font-size:1.1rem}
+  .btn{display:inline-block;padding:13px 30px;border-radius:var(--radius);font-weight:700;transition:.2s;cursor:pointer;border:none;font-size:1rem}
+  .btn-blue{background:var(--lblue);color:#0a2540}
+  .btn-blue:hover{background:#4fc3f7;transform:translateY(-2px)}
+  .btn-outline{border:2px solid #fff;color:#fff;margin-left:12px}
+  .btn-outline:hover{background:#fff;color:var(--dark)}
+  .hero-badges{display:flex;gap:24px;margin-top:44px;flex-wrap:wrap}
+  .hero-badges div{display:flex;align-items:center;gap:10px;font-size:.92rem}
+  .hero-badges b{color:var(--lblue);font-size:1.3rem}
+
+  /* Sections */
+  section{padding:70px 0}
+  .section-title{text-align:center;margin-bottom:44px}
+  .section-title h2{font-size:2rem;color:var(--dark)}
+  .section-title p{color:var(--muted);margin-top:8px}
+  .section-title::after{content:"";display:block;width:60px;height:4px;background:var(--lblue);margin:14px auto 0;border-radius:2px}
+
+  /* Advantages */
+  .adv{background:var(--grey)}
+  .adv-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:24px}
+  .adv-card{background:#fff;border-radius:var(--radius);padding:30px 24px;text-align:center;box-shadow:0 2px 10px rgba(0,0,0,.05);transition:.25s}
+  .adv-card:hover{transform:translateY(-5px);box-shadow:0 8px 24px rgba(0,0,0,.1)}
+  .adv-card .icon{font-size:2.4rem;margin-bottom:12px}
+  .adv-card h3{margin-bottom:8px;font-size:1.05rem}
+  .adv-card p{font-size:.9rem;color:var(--muted)}
+
+  /* Catalog */
+  .filters{display:flex;justify-content:center;gap:10px;flex-wrap:wrap;margin-bottom:18px}
+  #brandFilters button.active,#brandFilters button:hover{border-color:#e63946;background:#e63946}
+  #filters{margin-bottom:36px}
+  .filters button{padding:9px 20px;border:2px solid #d7dde3;background:#fff;border-radius:30px;cursor:pointer;font-weight:600;font-size:.9rem;transition:.2s}
+  .filters button.active,.filters button:hover{border-color:var(--blue);background:var(--blue);color:#fff}
+  .products{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:26px}
+  .card{border:1px solid #e7ebef;border-radius:var(--radius);overflow:hidden;background:#fff;transition:.25s;display:flex;flex-direction:column}
+  .card:hover{box-shadow:0 10px 28px rgba(0,0,0,.12);transform:translateY(-4px)}
+  .card-img{height:150px;background:linear-gradient(160deg,#f4f6f8,#e6ebf0);display:flex;align-items:center;justify-content:center;position:relative}
+  .unit{width:78%;height:52px;background:#fff;border-radius:10px;box-shadow:0 6px 16px rgba(0,0,0,.14);position:relative}
+  .unit::before{content:"";position:absolute;bottom:9px;left:8%;width:84%;height:5px;background:#dfe5ea;border-radius:3px}
+  .unit::after{content:attr(data-brand);position:absolute;top:9px;right:10px;font-size:.48rem;color:#9aa4ae;letter-spacing:1px;font-weight:700}
+  .unit.floor{height:80px;width:55%}
+  .unit.cass{height:70px;width:60%;border-radius:6px}
+  .unit.tall{height:105px;width:34%;border-radius:16px}
+  .unit.box{height:85px;width:50%;border-radius:8px}
+  .badge{position:absolute;top:12px;left:12px;padding:4px 12px;border-radius:20px;font-size:.7rem;font-weight:800;color:#fff;background:var(--blue)}
+  .card-body{padding:20px;flex:1;display:flex;flex-direction:column}
+  .card-body h3{font-size:.98rem;color:var(--dark)}
+  .card-body .model{font-size:.76rem;color:var(--muted);margin-bottom:10px}
+  .specs{list-style:none;font-size:.83rem;color:#4b5563;margin-bottom:14px}
+  .specs li{padding:3px 0;border-bottom:1px dashed #edf0f3}
+  .specs li b{float:right;color:var(--dark)}
+  .price-row{margin-top:auto;display:flex;align-items:center;justify-content:space-between;gap:8px}
+  .price{font-size:1.22rem;font-weight:800;color:var(--blue)}
+  .price small{display:block;font-size:.72rem;color:var(--muted);font-weight:400}
+  .btn-sm{padding:9px 14px;font-size:.83rem}
+  .price-note{text-align:center;color:var(--muted);font-size:.8rem;margin-top:26px}
+
+  /* Inquiry */
+  .inquiry{background:linear-gradient(120deg,var(--dark),#0f3460);color:#fff}
+  .inquiry .section-title h2{color:#fff}
+  .inquiry .section-title p{color:#b9c4d1}
+  form{max-width:640px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:16px}
+  form .full{grid-column:1/-1}
+  label{font-size:.85rem;font-weight:600;display:block;margin-bottom:5px}
+  input,select,textarea{width:100%;padding:12px 14px;border:none;border-radius:8px;font-size:.95rem;font-family:inherit}
+  textarea{resize:vertical;min-height:110px}
+  .form-note{grid-column:1/-1;font-size:.8rem;color:#b9c4d1;text-align:center}
+  #formOk{display:none;grid-column:1/-1;background:#0f8a3c;padding:14px;border-radius:8px;text-align:center;font-weight:700}
+
+  /* Contacts */
+  .contacts-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:24px;text-align:center}
+  .contact-card{background:var(--grey);border-radius:var(--radius);padding:32px 20px}
+  .contact-card .icon{font-size:2rem;margin-bottom:10px}
+  .contact-card h3{margin-bottom:6px}
+  .contact-card a{color:var(--blue);font-weight:700;display:block}
+  .contact-card p{color:var(--muted);font-size:.92rem}
+
+  /* Footer */
+  footer{background:var(--dark);color:#9aa7b5;padding:40px 0 24px;font-size:.88rem}
+  .footer-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:30px;margin-bottom:28px}
+  footer h4{color:#fff;margin-bottom:12px;font-size:1rem}
+  footer ul{list-style:none}
+  footer li{padding:4px 0}
+  footer a:hover{color:#fff}
+  .copy{border-top:1px solid #2c3a52;padding-top:18px;text-align:center;font-size:.8rem}
+
+  @media(max-width:820px){
+    .burger{display:block}
+    nav{display:none;position:absolute;top:100%;left:0;right:0;background:#fff;box-shadow:0 10px 20px rgba(0,0,0,.1)}
+    nav.open{display:block}
+    nav ul{flex-direction:column;padding:12px}
+    .hero h1{font-size:1.9rem}
+    form{grid-template-columns:1fr}
+    .btn-outline{margin-left:0;margin-top:10px}
+  }
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="container">
+    <span>📞 <a href="tel:+359899080052">0899 080 052</a> · <a href="tel:+359897897209">0897 897 209</a> · <a href="tel:+359896809049">0896 809 049</a></span>
+    <span>✉ <a href="mailto:antalavichev_2018@abv.bg">antalavichev_2018@abv.bg</a> · гр. Сандански</span>
+  </div>
+</div>
+
+<header>
+  <div class="container header-inner">
+    <a href="#home" class="logo">
+      <svg viewBox="0 0 110 106" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <linearGradient id="lgsplit" x1="0" y1="0" x2="1" y2="0">
+            <stop offset="0" stop-color="#1e88e5"/>
+            <stop offset="0.5" stop-color="#0d47a1"/>
+            <stop offset="0.5" stop-color="#c62828"/>
+            <stop offset="1" stop-color="#e63946"/>
+          </linearGradient>
+        </defs>
+        <path d="M55 0 L110 44 L96 44 L96 104 L14 104 L14 44 L0 44 Z" fill="url(#lgsplit)"/>
+        <rect x="30" y="56" width="50" height="20" rx="6" fill="#ffffff"/>
+        <rect x="36" y="69" width="38" height="3.5" rx="1.75" fill="#cfd8dc"/>
+        <path d="M30 86 q5 5 10 0 t10 0" fill="none" stroke="#90caf9" stroke-width="3.5" stroke-linecap="round"/>
+        <path d="M62 96 q3 -5 0 -10 M72 96 q3 -5 0 -10 M82 96 q3 -5 0 -10" fill="none" stroke="#ffab91" stroke-width="3.5" stroke-linecap="round"/>
+        <g stroke="#ffffff" stroke-width="3" stroke-linecap="round">
+          <line x1="30" y1="20" x2="30" y2="34"/><line x1="24" y1="24" x2="36" y2="30"/><line x1="24" y1="30" x2="36" y2="24"/>
+        </g>
+        <circle cx="82" cy="27" r="6" fill="#ffca28"/>
+        <g stroke="#ffca28" stroke-width="2.5" stroke-linecap="round">
+          <line x1="82" y1="16" x2="82" y2="12"/><line x1="82" y1="38" x2="82" y2="42"/>
+          <line x1="71" y1="27" x2="67" y2="27"/><line x1="93" y1="27" x2="97" y2="27"/>
+        </g>
+      </svg>
+      <div class="logo-text"><b>АНТАЛАВИЧЕВ-2018 ЕООД</b><span>Охлаждане и отопление · Сандански</span></div>
+    </a>
+    <button class="burger" onclick="document.getElementById('nav').classList.toggle('open')">☰</button>
+    <nav id="nav">
+      <ul>
+        <li><a href="#home" class="active">Начало</a></li>
+        <li><a href="#products">Продукти</a></li>
+        <li><a href="#uslugi">Услуги</a></li>
+        <li><a href="#inquiry">Запитване</a></li>
+        <li><a href="#contacts">Контакти</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<section class="hero" id="home">
+  <div class="container">
+    <h1>Климатична и отоплителна техника — <span>Mitsubishi Heavy</span>, <span>Crystal</span>, <span>GREE</span> и <span>Viessmann</span></h1>
+    <p>Анталавичев-2018 ЕООД — продажба, професионален монтаж и сервиз на инверторни климатици: японско качество от висок клас и достъпни решения за всеки бюджет.</p>
+    <a href="#products" class="btn btn-blue">Разгледай продуктите</a>
+    <a href="#inquiry" class="btn btn-outline">Направи запитване</a>
+    <div class="hero-badges">
+      <div><b>15+</b> години опит</div>
+      <div><b>36</b> месеца гаранция</div>
+      <div><b>24ч</b> отговор на запитване</div>
+      <div><b>A+++</b> енергиен клас</div>
+    </div>
+  </div>
+</section>
+
+<section class="adv" id="uslugi">
+  <div class="container">
+    <div class="section-title"><h2>Нашите услуги</h2><p>Пълна услуга — от консултация до сервиз</p></div>
+    <div class="adv-grid">
+      <div class="adv-card"><div class="icon">🛒</div><h3>Продажба</h3><p>Пълна гама техника от Mitsubishi Heavy, Crystal, GREE, Viessmann, Immergas и Warmhaus — за дома, офиса и търговски обекти.</p></div>
+      <div class="adv-card"><div class="icon">🔧</div><h3>Професионален монтаж</h3><p>Качествен монтаж с оригинални материали и внимание към детайла.</p></div>
+      <div class="adv-card"><div class="icon">🛠️</div><h3>Сервиз и профилактика</h3><p>Гаранционен и извънгаранционен сервиз, профилактика и почистване.</p></div>
+      <div class="adv-card"><div class="icon">💬</div><h3>Безплатна консултация</h3><p>Съдействаме при избора на подходящ климатик за Вашето помещение.</p></div>
+      <div class="adv-card"><div class="icon">🔥</div><h3>Газификация</h3><p>Изграждане на газови инсталации и съдействие за присъединяване към газоразпределителната мрежа на „Ситигаз България".</p></div>
+      <div class="adv-card"><div class="icon">🚿</div><h3>ВиК услуги</h3><p>Изграждане и ремонт на водопровод и канализация, отстраняване на течове и аварии, отпушване, монтаж на санитария и бойлери.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="products">
+  <div class="container">
+    <div class="section-title"><h2>Продукти</h2><p>Климатици, термопомпи, котли, радиатори, соларни системи, конвектори, лири, бойлери и рекуператори — Mitsubishi Heavy, Crystal, GREE, Viessmann, Immergas и Warmhaus</p></div>
+    <div class="filters" id="brandFilters">
+      <button class="active" onclick="setBrand('all',this)">Всички марки</button>
+      <button onclick="setBrand('mhi',this)">Mitsubishi Heavy</button>
+      <button onclick="setBrand('crystal',this)">Crystal</button>
+      <button onclick="setBrand('gree',this)">GREE</button>
+      <button onclick="setBrand('viessmann',this)">Viessmann</button>
+      <button onclick="setBrand('immergas',this)">Immergas</button>
+      <button onclick="setBrand('warmhaus',this)">Warmhaus</button>
+    </div>
+    <div class="filters" id="filters">
+      <button class="active" onclick="setCat('all',this)">Всички</button>
+      <button onclick="setCat('stenen',this)">Стенни</button>
+      <button onclick="setCat('podov',this)">Подови</button>
+      <button onclick="setCat('kaseten',this)">Касетъчни</button>
+      <button onclick="setCat('tavanen',this)">Подово-таванни</button>
+      <button onclick="setCat('konzolen',this)">Конзолни</button>
+      <button onclick="setCat('kolonen',this)">Колонни</button>
+      <button onclick="setCat('kanalen',this)">Канални</button>
+      <button onclick="setCat('multi',this)">Мултисплит</button>
+      <button onclick="setCat('termo',this)">Термопомпи</button>
+      <button onclick="setCat('konvektor',this)">Конвектори</button>
+      <button onclick="setCat('lira',this)">Лири за баня</button>
+      <button onclick="setCat('boiler',this)">Бойлери</button>
+      <button onclick="setCat('bufer',this)">Буферни съдове</button>
+      <button onclick="setCat('reku',this)">Рекуператори</button>
+      <button onclick="setCat('kotel',this)">Котли</button>
+      <button onclick="setCat('solar',this)">Соларни системи</button>
+      <button onclick="setCat('radiator',this)">Радиатори</button>
+    </div>
+    <div class="products" id="productGrid"></div>
+    <p class="price-note">* Цените са ориентировъчни (юли 2026 г.) и не включват монтаж. За продукти „по запитване" и точна оферта — свържете се с нас.</p>
+  </div>
+</section>
+
+<section class="inquiry" id="inquiry">
+  <div class="container">
+    <div class="section-title"><h2>Изпратете запитване</h2><p>Ще се свържем с Вас до 24 часа с оферта и консултация</p></div>
+    <form onsubmit="return sendInquiry(event)">
+      <div><label>Име и фамилия *</label><input type="text" id="fName" required placeholder="Иван Иванов"></div>
+      <div><label>Телефон *</label><input type="tel" id="fPhone" required placeholder="0888 123 456"></div>
+      <div><label>Имейл</label><input type="email" id="fEmail" placeholder="ivan@example.com"></div>
+      <div><label>Интересувам се от</label>
+        <select id="fProduct">
+          <option>Общо запитване</option>
+          <option>Климатик</option>
+          <option>Мултисплит система</option>
+          <option>Термопомпа</option>
+          <option>Вентилаторен конвектор</option>
+          <option>Лира за баня</option>
+          <option>Бойлер / буферен съд</option>
+          <option>Рекуператор</option>
+          <option>Газификация / газова инсталация</option>
+          <option>ВиК услуги / ремонт</option>
+          <option>Монтаж / сервиз</option>
+        </select>
+      </div>
+      <div class="full"><label>Съобщение</label><textarea id="fMsg" placeholder="Опишете помещението (площ, изложение) или задайте въпрос..."></textarea></div>
+      <div class="full" style="text-align:center"><button type="submit" class="btn btn-blue">Изпрати запитване</button></div>
+      <div id="formOk">✓ Отваря се вашата пощенска програма с готовото запитване.</div>
+      <p class="form-note">Запитването се изпраща на antalavichev_2018@abv.bg</p>
+    </form>
+  </div>
+</section>
+
+<section id="contacts">
+  <div class="container">
+    <div class="section-title"><h2>Контакти</h2><p>Свържете се с нас</p></div>
+    <div class="contacts-grid">
+      <div class="contact-card"><div class="icon">📞</div><h3>Телефони</h3>
+        <a href="tel:+359899080052">0899 080 052</a>
+        <a href="tel:+359897897209">0897 897 209</a>
+        <a href="tel:+359896809049">0896 809 049</a>
+      </div>
+      <div class="contact-card"><div class="icon">✉️</div><h3>Имейл</h3>
+        <a href="mailto:antalavichev_2018@abv.bg">antalavichev_2018@abv.bg</a>
+        <a href="mailto:nikivylkov@abv.bg">nikivylkov@abv.bg</a>
+      </div>
+      <div class="contact-card"><div class="icon">📍</div><h3>Адрес</h3><p>гр. Сандански<br>ул. „Асен Хадживасилев" 13</p></div>
+      <div class="contact-card"><div class="icon">🕘</div><h3>Работно време</h3><p>Понеделник – Петък<br>9:00 – 18:00 ч.</p></div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <h4>Анталавичев-2018 ЕООД</h4>
+        <p>Продажба, монтаж и сервиз на климатична и отоплителна техника — Mitsubishi Heavy, Crystal, GREE, Viessmann, Immergas и Warmhaus — в Сандански и региона.</p>
+      </div>
+      <div>
+        <h4>Навигация</h4>
+        <ul>
+          <li><a href="#home">Начало</a></li>
+          <li><a href="#products">Продукти</a></li>
+          <li><a href="#uslugi">Услуги</a></li>
+          <li><a href="#inquiry">Запитване</a></li>
+          <li><a href="#contacts">Контакти</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Контакти</h4>
+        <ul>
+          <li>📞 0899 080 052</li>
+          <li>📞 0897 897 209</li>
+          <li>📞 0896 809 049</li>
+          <li>✉ antalavichev_2018@abv.bg</li>
+          <li>📍 гр. Сандански, ул. „Асен Хадживасилев" 13</li>
+        </ul>
+      </div>
+    </div>
+    <div class="copy">© 2026 Анталавичев-2018 ЕООД. Всички права запазени.</div>
+  </div>
+</footer>
+
+<script>
+const products=[
+ // ===== MITSUBISHI HEAVY INDUSTRIES =====
+ // Standard (ZSP)
+ {brand:"mhi",bl:"MITSUBISHI HEAVY",name:"MHI Standard",model:"SRK25ZSP-W / SRC25ZSP-W",cat:"stenen",btu:"9 000 BTU",energy:"A++",eur:"913",lv:"1 785,67",badge:null,style:""},
+ {brand:"mhi",bl:"MITSUBISHI HEAVY",name:"MHI Standard",model:"SRK35ZSP-W / SRC35ZSP-W",cat:"stenen",btu:"12 000 BTU",energy:"A++",eur:"1 043",lv:"2 039,93",badge:null,style:""},
+ {brand:"mhi",bl:"MITSUBISHI HEAVY",name:"MHI Standard",model:"SRK45ZSP-W / SRC45ZSP-W",cat:"stenen",btu:"16 000 BTU",energy:"A++",eur:"1 393",lv:"2 724,47",badge:null,style:""},
+ {brand:"mhi",bl:"MITSUBISHI HEAVY",name:"MHI Standard",model:"SRK50ZSP-W / SRC50ZSP-W",cat:"stenen",btu:"18 000 BTU",energy:"A++/A+",eur:"1 512",lv:"2 957,21",badge:null,style:""},
+ // Premium (ZS)
+ {brand:"mhi",bl:"MITSUBISHI HEAVY",name:"MHI Premium",model:"SRK20ZS-W / SRC20ZS-W",cat:"stenen",btu:"7 000 BTU",energy:"A+++",eur:"1 043",lv:"2 039,93",badge:null,style:""},
+ {brand:"mhi",bl:"MITSUBISHI HEAVY",name:"MHI Premium",model:"SRK25ZS-W / SRC25ZS-W2",cat:"stenen",btu:"9 000 BTU",energy:"A+++",eur:"1 139",lv:"2 227,69",badge:null,style:""},
+ {brand:"mhi",bl:"MITSUBISHI HEAVY",name:"MHI Premium",model:"SRK35ZS-W / SRC35ZS-W",cat:"stenen",btu:"12 000 BTU",energy:"A++",eur:"1 308",lv:"2 558,22",badge:"ХИТ",style:""},
+ {brand:"mhi",bl:"MITSUBISHI HEAVY",name:"MHI Premium",model:"SRK50ZS-W / SRC50ZS-W",cat:"stenen",btu:"18 000 BTU",energy:"A++",eur:"1 686",lv:"3 297,52",badge:null,style:""},
+ // Premium Pro (ZT-WF, WiFi)
+ {brand:"mhi",bl:"MITSUBISHI HEAVY",name:"MHI Premium Pro · Wi-Fi",model:"SRK25ZT-WF / SRC25ZT-W",cat:"stenen",btu:"9 000 BTU",energy:"A+++",eur:"1 263",lv:"2 470,21",badge:"НОВО",style:""},
+ {brand:"mhi",bl:"MITSUBISHI HEAVY",name:"MHI Premium Pro · Wi-Fi",model:"SRK35ZT-WF / SRC35ZT-W",cat:"stenen",btu:"12 000 BTU",energy:"A+++",eur:"1 433",lv:"2 802,70",badge:"НОВО",style:""},
+ {brand:"mhi",bl:"MITSUBISHI HEAVY",name:"MHI Premium Pro · Wi-Fi",model:"SRK50ZT-WF / SRC50ZT-W",cat:"stenen",btu:"18 000 BTU",energy:"A++",eur:"1 819",lv:"3 557,65",badge:null,style:""},
+ // Diamond (ZSX, хиперинвертор)
+ {brand:"mhi",bl:"MITSUBISHI HEAVY",name:"MHI Diamond хиперинвертор",model:"SRK20ZSX-W / SRC20ZSX-W",cat:"stenen",btu:"7 000 BTU",energy:"A+++",eur:"1 590",lv:"3 109,76",badge:null,style:""},
+ {brand:"mhi",bl:"MITSUBISHI HEAVY",name:"MHI Diamond хиперинвертор",model:"SRK25ZSX-W / SRC25ZSX-W",cat:"stenen",btu:"9 000 BTU",energy:"A+++",eur:"1 765",lv:"3 452,03",badge:null,style:""},
+ {brand:"mhi",bl:"MITSUBISHI HEAVY",name:"MHI Diamond хиперинвертор",model:"SRK35ZSX-W / SRC35ZSX-W",cat:"stenen",btu:"12 000 BTU",energy:"A+++",eur:"1 970",lv:"3 852,98",badge:"ХИТ",style:""},
+ {brand:"mhi",bl:"MITSUBISHI HEAVY",name:"MHI Diamond хиперинвертор",model:"SRK50ZSX-W / SRC50ZSX-W",cat:"stenen",btu:"18 000 BTU",energy:"A++",eur:"2 419",lv:"4 731,15",badge:null,style:""},
+ // Подови (SRF)
+ {brand:"mhi",bl:"MITSUBISHI HEAVY",name:"MHI подов климатик",model:"SRF25ZS-W / SRC25ZS-W2",cat:"podov",btu:"9 000 BTU",energy:"A++",eur:"1 618",lv:"3 164,53",badge:null,style:"floor"},
+ {brand:"mhi",bl:"MITSUBISHI HEAVY",name:"MHI подов климатик",model:"SRF35ZS-W / SRC35ZS-W2",cat:"podov",btu:"12 000 BTU",energy:"A++",eur:"1 759",lv:"3 440,30",badge:null,style:"floor"},
+ {brand:"mhi",bl:"MITSUBISHI HEAVY",name:"MHI подов климатик",model:"SRF50ZSX-W / SRC50ZSX-W3",cat:"podov",btu:"18 000 BTU",energy:"A++",eur:"2 407",lv:"4 707,68",badge:null,style:"floor"},
+ // Касетъчни (FDTC)
+ {brand:"mhi",bl:"MITSUBISHI HEAVY",name:"MHI касетъчен климатик",model:"FDTC25VH1 / SRC25ZS-W1",cat:"kaseten",btu:"9 000 BTU",energy:"A++",eur:"1 642",lv:"3 211,47",badge:null,style:"cass"},
+ {brand:"mhi",bl:"MITSUBISHI HEAVY",name:"MHI касетъчен климатик",model:"FDTC35VH1 / SRC35ZS-W1",cat:"kaseten",btu:"12 000 BTU",energy:"A++",eur:"1 787",lv:"3 495,06",badge:null,style:"cass"},
+ {brand:"mhi",bl:"MITSUBISHI HEAVY",name:"MHI касетъчен климатик",model:"FDTC50VH / SRC50ZSX-W1",cat:"kaseten",btu:"18 000 BTU",energy:"A++",eur:"2 561",lv:"5 008,88",badge:null,style:"cass"},
+ // MHI мултисплит — външни тела (SCM)
+ {brand:"mhi",bl:"MITSUBISHI HEAVY",name:"MHI мултисплит външно тяло",model:"SCM40ZS-W",cat:"multi",btu:"2 стаи · 4.0 kW",energy:"A+++",eur:"1 381",lv:"2 700,51",badge:null,style:"box"},
+ {brand:"mhi",bl:"MITSUBISHI HEAVY",name:"MHI мултисплит външно тяло",model:"SCM45ZS-W",cat:"multi",btu:"2 стаи · 4.5 kW",energy:"A+++",eur:"1 485",lv:"2 903,82",badge:null,style:"box"},
+ {brand:"mhi",bl:"MITSUBISHI HEAVY",name:"MHI мултисплит външно тяло",model:"SCM50ZS-W",cat:"multi",btu:"2–3 стаи · 5.0 kW",energy:"A+++",eur:"1 755",lv:"3 432,09",badge:null,style:"box"},
+ {brand:"mhi",bl:"MITSUBISHI HEAVY",name:"MHI мултисплит външно тяло",model:"SCM60ZS-W",cat:"multi",btu:"3 стаи · 6.0 kW",energy:"A+++",eur:"2 049",lv:"4 006,62",badge:null,style:"box"},
+ {brand:"mhi",bl:"MITSUBISHI HEAVY",name:"MHI мултисплит външно тяло",model:"SCM71ZS-W",cat:"multi",btu:"3–4 стаи · 7.1 kW",energy:"A++",eur:"2 545",lv:"4 977,97",badge:null,style:"box"},
+ {brand:"mhi",bl:"MITSUBISHI HEAVY",name:"MHI мултисплит външно тяло",model:"SCM80ZS-W",cat:"multi",btu:"4 стаи · 8.0 kW",energy:"A++",eur:"3 024",lv:"5 914,90",badge:null,style:"box"},
+ {brand:"mhi",bl:"MITSUBISHI HEAVY",name:"MHI мултисплит външно тяло",model:"SCM100ZM-S",cat:"multi",btu:"до 5 стаи · 10.0 kW",energy:"A+",eur:"4 127",lv:"8 070,73",badge:null,style:"box"},
+ {brand:"mhi",bl:"MITSUBISHI HEAVY",name:"MHI мултисплит външно тяло",model:"SCM125ZM-S",cat:"multi",btu:"до 6 стаи · 12.5 kW",energy:"A",eur:"4 021",lv:"7 864,00",badge:null,style:"box"},
+ // MHI мултисплит — вътрешни тела
+ {brand:"mhi",bl:"MITSUBISHI HEAVY",name:"MHI вътрешно тяло, стенно Premium",model:"SRK-ZS серия (за мултисплит)",cat:"multi",btu:"от 7 000 BTU",energy:"A+++",eur:"356",lv:"от 696,28",badge:null,style:""},
+ {brand:"mhi",bl:"MITSUBISHI HEAVY",name:"MHI вътрешно тяло, стенно Diamond",model:"SRK-ZSX серия (за мултисплит)",cat:"multi",btu:"от 7 000 BTU",energy:"A+++",eur:"547",lv:"от 1 069,71",badge:null,style:""},
+ {brand:"mhi",bl:"MITSUBISHI HEAVY",name:"MHI вътрешно тяло, подово",model:"SRF серия (за мултисплит)",cat:"multi",btu:"от 9 000 BTU",energy:"A++",eur:"866",lv:"от 1 694,50",badge:null,style:"floor"},
+ {brand:"mhi",bl:"MITSUBISHI HEAVY",name:"MHI вътрешно тяло, касетъчно",model:"FDTC серия (за мултисплит)",cat:"multi",btu:"от 9 000 BTU",energy:"A++",eur:"1 043",lv:"от 2 039,53",badge:null,style:"cass"},
+ // ===== CRYSTAL =====
+ // Стенни (високостенни)
+ {brand:"crystal",bl:"CRYSTAL",name:"Crystal New Emerald · Wi-Fi",model:"CHI/CHO-25H-UW",cat:"stenen",btu:"9 000 BTU",energy:"A++",eur:"404",lv:"790,00",badge:"ИЗГОДНО",style:""},
+ {brand:"crystal",bl:"CRYSTAL",name:"Crystal New Emerald · Wi-Fi",model:"CHI/CHO-35H-UW",cat:"stenen",btu:"12 000 BTU",energy:"A++",eur:"435",lv:"850,00",badge:"ИЗГОДНО",style:""},
+ {brand:"crystal",bl:"CRYSTAL",name:"Crystal New Emerald · Wi-Fi",model:"CHI/CHO-50H-UW",cat:"stenen",btu:"18 000 BTU",energy:"A++",eur:"762",lv:"1 490,01",badge:null,style:""},
+ {brand:"crystal",bl:"CRYSTAL",name:"Crystal New Emerald · Wi-Fi",model:"CHI/CHO-70H-UW",cat:"stenen",btu:"24 000 BTU",energy:"A++",eur:"946",lv:"1 850,00",badge:null,style:""},
+ {brand:"crystal",bl:"CRYSTAL",name:"Crystal Quartz",model:"CHI-09H-KA / CHO-09H-KA",cat:"stenen",btu:"9 000 BTU",energy:"A+++",eur:"608",lv:"1 190,01",badge:null,style:""},
+ {brand:"crystal",bl:"CRYSTAL",name:"Crystal Quartz",model:"CHI-12H-KA / CHO-12H-KA",cat:"stenen",btu:"12 000 BTU",energy:"A+++",eur:"660",lv:"1 290,01",badge:null,style:""},
+ {brand:"crystal",bl:"CRYSTAL",name:"Crystal Quartz",model:"CHI-18H-KA / CHO-18H-KA",cat:"stenen",btu:"18 000 BTU",energy:"A+++",eur:"966",lv:"1 890,00",badge:null,style:""},
+ {brand:"crystal",bl:"CRYSTAL",name:"Crystal Quartz",model:"CHI-24H-KA / CHO-24H-KA",cat:"stenen",btu:"24 000 BTU",energy:"A+++",eur:"1 171",lv:"2 290,00",badge:null,style:""},
+ {brand:"crystal",bl:"CRYSTAL",name:"Crystal Quartz Milky · Wi-Fi, 4D поток",model:"CHI-09M-MC / CHO-09M-MC",cat:"stenen",btu:"9 000 BTU",energy:"A+++",eur:null,lv:null,badge:"НОВО",style:""},
+ {brand:"crystal",bl:"CRYSTAL",name:"Crystal Quartz Milky · Wi-Fi, 4D поток",model:"CHI-12M-MC / CHO-12M-MC",cat:"stenen",btu:"12 000 BTU",energy:"A+++",eur:null,lv:null,badge:"НОВО",style:""},
+ {brand:"crystal",bl:"CRYSTAL",name:"Crystal Quartz Milky · Wi-Fi, 4D поток",model:"CHI-15M-MC / CHO-15M-MC",cat:"stenen",btu:"15 000 BTU",energy:"A+++",eur:null,lv:null,badge:"НОВО",style:""},
+ {brand:"crystal",bl:"CRYSTAL",name:"Crystal Quartz Milky · Wi-Fi, 4D поток",model:"CHI-18M-MC / CHO-18M-MC",cat:"stenen",btu:"18 000 BTU",energy:"A+++",eur:null,lv:null,badge:"НОВО",style:""},
+ {brand:"crystal",bl:"CRYSTAL",name:"Crystal Quartz Milky · Wi-Fi, 4D поток",model:"CHI-24M-MC / CHO-24M-MC",cat:"stenen",btu:"24 000 BTU",energy:"A+++",eur:null,lv:null,badge:"НОВО",style:""},
+ {brand:"crystal",bl:"CRYSTAL",name:"Crystal Quartz Milky · Wi-Fi, 4D поток",model:"CHI-30M-MC / CHO-30M-MC",cat:"stenen",btu:"30 000 BTU",energy:"A+++",eur:null,lv:null,badge:"НОВО",style:""},
+ {brand:"crystal",bl:"CRYSTAL",name:"Crystal Topaz хиперинвертор · Smart Eye",model:"CHI-AI09H-QE / CHO-AI09H-QE",cat:"stenen",btu:"9 000 BTU",energy:"A+++",eur:"793",lv:"1 550,00",badge:null,style:""},
+ {brand:"crystal",bl:"CRYSTAL",name:"Crystal Topaz хиперинвертор · Smart Eye",model:"CHI-AI12H-QE / CHO-AI12H-QE",cat:"stenen",btu:"12 000 BTU",energy:"A+++",eur:"844",lv:"1 650,00",badge:null,style:""},
+ {brand:"crystal",bl:"CRYSTAL",name:"Crystal инверторен, високостенен",model:"18S-2A",cat:"stenen",btu:"18 000 BTU",energy:"A++",eur:null,lv:null,badge:null,style:""},
+ {brand:"crystal",bl:"CRYSTAL",name:"Crystal инверторен, високостенен",model:"24S-2A",cat:"stenen",btu:"24 000 BTU",energy:"A++",eur:null,lv:null,badge:null,style:""},
+ {brand:"crystal",bl:"CRYSTAL",name:"Crystal Emerald · Wi-Fi",model:"70H-UW",cat:"stenen",btu:"24 000 BTU",energy:"A++",eur:null,lv:null,badge:null,style:""},
+ // Конзолни
+ {brand:"crystal",bl:"CRYSTAL",name:"Crystal конзолен климатик",model:"CCI-09H2-UR4 / CCO-9H-UR4",cat:"konzolen",btu:"9 000 BTU",energy:"A++",eur:null,lv:null,badge:null,style:"floor"},
+ {brand:"crystal",bl:"CRYSTAL",name:"Crystal конзолен климатик",model:"CCI-12H2-UR4",cat:"konzolen",btu:"12 000 BTU",energy:"A++",eur:null,lv:null,badge:null,style:"floor"},
+ {brand:"crystal",bl:"CRYSTAL",name:"Crystal конзолен климатик",model:"CCI-14H2-UR4",cat:"konzolen",btu:"14 000 BTU",energy:"A++",eur:null,lv:null,badge:null,style:"floor"},
+ {brand:"crystal",bl:"CRYSTAL",name:"Crystal конзолен климатик",model:"CCI-18H2-UR4",cat:"konzolen",btu:"18 000 BTU",energy:"A++",eur:null,lv:null,badge:null,style:"floor"},
+ // Подово-таванни
+ {brand:"crystal",bl:"CRYSTAL",name:"Crystal подово-таванен",model:"CUA-D36HR4",cat:"tavanen",btu:"36 000 BTU",energy:"A++",eur:"1 836",lv:"3 590,00",badge:null,style:"floor"},
+ {brand:"crystal",bl:"CRYSTAL",name:"Crystal подово-таванен",model:"CUA-D55HR4",cat:"tavanen",btu:"55 000 BTU",energy:"A++",eur:"2 654",lv:"5 189,99",badge:null,style:"floor"},
+ // Канални
+ {brand:"crystal",bl:"CRYSTAL",name:"Crystal канален климатик",model:"CTB-55HVR4S / COU-55HZDR4",cat:"kanalen",btu:"55 000 BTU",energy:"A++",eur:null,lv:null,badge:null,style:"box"},
+ // Касетъчни
+ {brand:"crystal",bl:"CRYSTAL",name:"Crystal компактен касетъчен",model:"CCB-D12HR4 / COU-D12HR4",cat:"kaseten",btu:"12 000 BTU",energy:"A++",eur:null,lv:null,badge:null,style:"cass"},
+ {brand:"crystal",bl:"CRYSTAL",name:"Crystal компактен касетъчен",model:"CCB-D18HR4 / COU-D18HR4",cat:"kaseten",btu:"18 000 BTU",energy:"A++",eur:null,lv:null,badge:null,style:"cass"},
+ {brand:"crystal",bl:"CRYSTAL",name:"Crystal касетъчен климатик",model:"CCR-D24HR4 / COU-D24HR4",cat:"kaseten",btu:"24 000 BTU",energy:"A++",eur:null,lv:null,badge:null,style:"cass"},
+ {brand:"crystal",bl:"CRYSTAL",name:"Crystal касетъчен климатик",model:"CCR-48HZDR4 / COU-48HZDR4",cat:"kaseten",btu:"48 000 BTU",energy:"A++",eur:null,lv:null,badge:null,style:"cass"},
+ // Колонни
+ {brand:"crystal",bl:"CRYSTAL",name:"Crystal колонен Energy Pro",model:"CFI-48H-MPA / CFO-48H-MPA",cat:"kolonen",btu:"48 000 BTU",energy:"A+",eur:null,lv:null,badge:null,style:"tall"},
+ {brand:"crystal",bl:"CRYSTAL",name:"Crystal колонен климатик",model:"CHV-D140FA/HR1 – CHV-D140W/HZR1",cat:"kolonen",btu:"48 000 BTU",energy:"A+",eur:null,lv:null,badge:null,style:"tall"},
+ {brand:"crystal",bl:"CRYSTAL",name:"Crystal колонен климатик",model:"CHV-D160FA/HR1 – CHV-D160W/HZR1",cat:"kolonen",btu:"55 000 BTU",energy:"A+",eur:null,lv:null,badge:null,style:"tall"},
+ // Мултисплит Crystal
+ {brand:"crystal",bl:"CRYSTAL",name:"Crystal мултисплит външно тяло",model:"C2OU-D18HR4",cat:"multi",btu:"2 стаи · 18 000 BTU",energy:"A++",eur:null,lv:null,badge:null,style:"box"},
+ {brand:"crystal",bl:"CRYSTAL",name:"Crystal мултисплит външно тяло",model:"C3OU-D27HR4",cat:"multi",btu:"3 стаи · 27 000 BTU",energy:"A++",eur:null,lv:null,badge:null,style:"box"},
+ {brand:"crystal",bl:"CRYSTAL",name:"Crystal мултисплит външно тяло",model:"C4OU-D36HR4",cat:"multi",btu:"4 стаи · 36 000 BTU",energy:"A++",eur:null,lv:null,badge:null,style:"box"},
+ {brand:"crystal",bl:"CRYSTAL",name:"Crystal мултисплит външно тяло",model:"C5OU-42HVR4",cat:"multi",btu:"5 стаи · 42 000 BTU",energy:"A++",eur:null,lv:null,badge:null,style:"box"},
+ {brand:"crystal",bl:"CRYSTAL",name:"Crystal вътрешно тяло, високостенно",model:"CCG-V09HR4 / V12HR4 / V18HR4 / V24HR4",cat:"multi",btu:"9–24 000 BTU",energy:"A++",eur:null,lv:null,badge:null,style:""},
+ {brand:"crystal",bl:"CRYSTAL",name:"Crystal вътрешно тяло, касетъчно",model:"CCB-D09HR4 / D12HR4 / D18HR4",cat:"multi",btu:"9–18 000 BTU",energy:"A++",eur:null,lv:null,badge:null,style:"cass"},
+ // Термопомпи — моноблок
+ {brand:"crystal",bl:"CRYSTAL",name:"Термопомпа въздух-вода Crystal LAVA",model:"LAVA-06AM · моноблок",cat:"termo",btu:"6 kW",energy:"A+++",eur:null,lv:null,badge:null,style:"box"},
+ {brand:"crystal",bl:"CRYSTAL",name:"Термопомпа въздух-вода Crystal LAVA",model:"LAVA-09AM · моноблок",cat:"termo",btu:"9 kW",energy:"A+++",eur:null,lv:null,badge:null,style:"box"},
+ {brand:"crystal",bl:"CRYSTAL",name:"Термопомпа въздух-вода Crystal LAVA",model:"LAVA-12AM · моноблок",cat:"termo",btu:"12 kW",energy:"A+++",eur:null,lv:null,badge:null,style:"box"},
+ {brand:"crystal",bl:"CRYSTAL",name:"Термопомпа въздух-вода Crystal LAVA",model:"LAVA-19AM · моноблок",cat:"termo",btu:"19 kW",energy:"A+++",eur:null,lv:null,badge:null,style:"box"},
+ {brand:"crystal",bl:"CRYSTAL",name:"Термопомпа въздух-вода Crystal OPAL",model:"CLM-16AP · моноблок, монофазна",cat:"termo",btu:"16 kW",energy:"A+++",eur:null,lv:null,badge:null,style:"box"},
+ {brand:"crystal",bl:"CRYSTAL",name:"Термопомпа Crystal RUBY (ErP)",model:"40M-TM · хидро сплит",cat:"termo",btu:"40 kW",energy:"A+++",eur:null,lv:null,badge:null,style:"box"},
+ {brand:"crystal",bl:"CRYSTAL",name:"Термопомпа Crystal RUBY R290 (ErP)",model:"08M-HB · хидро сплит",cat:"termo",btu:"8 kW",energy:"A+++",eur:null,lv:null,badge:"НОВО",style:"box"},
+ {brand:"crystal",bl:"CRYSTAL",name:"Термопомпа Crystal RUBY R290 (ErP)",model:"12M-HB · хидро сплит",cat:"termo",btu:"12 kW",energy:"A+++",eur:null,lv:null,badge:"НОВО",style:"box"},
+ {brand:"crystal",bl:"CRYSTAL",name:"Термопомпа Crystal RUBY R290 (ErP)",model:"15M-HB · хидро сплит",cat:"termo",btu:"15 kW",energy:"A+++",eur:null,lv:null,badge:"НОВО",style:"box"},
+ // Термопомпи — сплит
+ {brand:"crystal",bl:"CRYSTAL",name:"Термопомпа Crystal ONYX PRO",model:"8S / 10S / 12S / 16S · сплит",cat:"termo",btu:"8–16 kW",energy:"A+++",eur:null,lv:null,badge:null,style:"box"},
+ {brand:"crystal",bl:"CRYSTAL",name:"Термопомпа Crystal ONYX",model:"8S / 12S / 16S · сплит",cat:"termo",btu:"8–16 kW",energy:"A+++",eur:null,lv:null,badge:null,style:"box"},
+ {brand:"crystal",bl:"CRYSTAL",name:"Термопомпа Crystal Aqua Aura II",model:"6S / 9S / 12S / 15S / 19S · сплит",cat:"termo",btu:"6–18.5 kW",energy:"A+++",eur:null,lv:null,badge:null,style:"box"},
+ // Вентилаторни конвектори
+ {brand:"crystal",bl:"CRYSTAL",name:"Вентилаторен конвектор Crystal BGR",model:"BGR-200 L/R",cat:"konvektor",btu:"2 kW",energy:"—",eur:null,lv:null,badge:null,style:"floor"},
+ {brand:"crystal",bl:"CRYSTAL",name:"Вентилаторен конвектор Crystal BGR",model:"BGR-400 L/R",cat:"konvektor",btu:"4 kW",energy:"—",eur:null,lv:null,badge:null,style:"floor"},
+ {brand:"crystal",bl:"CRYSTAL",name:"Вентилаторен конвектор Crystal BGR",model:"BGR-600 L/R",cat:"konvektor",btu:"6 kW",energy:"—",eur:null,lv:null,badge:null,style:"floor"},
+ {brand:"crystal",bl:"CRYSTAL",name:"Вентилаторен конвектор Crystal BGR",model:"BGR-800 L/R",cat:"konvektor",btu:"8 kW",energy:"—",eur:null,lv:null,badge:null,style:"floor"},
+ {brand:"crystal",bl:"CRYSTAL",name:"Конвектор Crystal SMART · Wi-Fi",model:"SMART 200 L/R",cat:"konvektor",btu:"2 kW",energy:"—",eur:null,lv:null,badge:"НОВО",style:"floor"},
+ {brand:"crystal",bl:"CRYSTAL",name:"Конвектор Crystal SMART · Wi-Fi",model:"SMART 400 L/R",cat:"konvektor",btu:"4 kW",energy:"—",eur:null,lv:null,badge:"НОВО",style:"floor"},
+ {brand:"crystal",bl:"CRYSTAL",name:"Конвектор Crystal SMART · Wi-Fi",model:"SMART 600 L/R",cat:"konvektor",btu:"6 kW",energy:"—",eur:null,lv:null,badge:"НОВО",style:"floor"},
+ {brand:"crystal",bl:"CRYSTAL",name:"Конвектор Crystal SMART · Wi-Fi",model:"SMART 800 L/R",cat:"konvektor",btu:"8 kW",energy:"—",eur:null,lv:null,badge:"НОВО",style:"floor"},
+ // Лири за баня
+ {brand:"crystal",bl:"CRYSTAL",name:"Ел. лира за баня Crystal E-CORALITE",model:"300 W · 800×500 мм · sb-brass",cat:"lira",btu:"300 W",energy:"—",eur:null,lv:null,badge:null,style:"tall"},
+ {brand:"crystal",bl:"CRYSTAL",name:"Ел. лира за баня Crystal E-CORALITE",model:"500 W · 1200×500 мм · sb-brass",cat:"lira",btu:"500 W",energy:"—",eur:null,lv:null,badge:null,style:"tall"},
+ {brand:"crystal",bl:"CRYSTAL",name:"Ел. лира за баня Crystal E-PEARL",model:"300 W · 840×500 мм · бяла / черен мат",cat:"lira",btu:"300 W",energy:"—",eur:null,lv:null,badge:null,style:"tall"},
+ {brand:"crystal",bl:"CRYSTAL",name:"Ел. лира за баня Crystal E-PEARL",model:"500 W · 1213×500 мм · бяла / черен мат",cat:"lira",btu:"500 W",energy:"—",eur:null,lv:null,badge:null,style:"tall"},
+ {brand:"crystal",bl:"CRYSTAL",name:"Ел. лира за баня Crystal E-AGATE WHITE",model:"300 W · 800×500 мм",cat:"lira",btu:"300 W",energy:"—",eur:null,lv:null,badge:null,style:"tall"},
+ {brand:"crystal",bl:"CRYSTAL",name:"Ел. лира за баня Crystal E-AGATE WHITE",model:"500 W · 1200×500 мм",cat:"lira",btu:"500 W",energy:"—",eur:null,lv:null,badge:null,style:"tall"},
+ {brand:"crystal",bl:"CRYSTAL",name:"Ел. лира за баня Crystal E-JASPER WHITE",model:"600 W · 1380×550 мм",cat:"lira",btu:"600 W",energy:"—",eur:null,lv:null,badge:null,style:"tall"},
+ {brand:"crystal",bl:"CRYSTAL",name:"Ел. лира за баня Crystal E-JADE",model:"300 W · 720×400 мм · черен мат",cat:"lira",btu:"300 W",energy:"—",eur:null,lv:null,badge:null,style:"tall"},
+ {brand:"crystal",bl:"CRYSTAL",name:"Ел. лира за баня Crystal E-JADE",model:"500 W · 920×480 мм · черен мат",cat:"lira",btu:"500 W",energy:"—",eur:null,lv:null,badge:null,style:"tall"},
+ {brand:"crystal",bl:"CRYSTAL",name:"Ел. лира за баня Crystal E-CHROME",model:"450 W · 1375×480 мм",cat:"lira",btu:"450 W",energy:"—",eur:null,lv:null,badge:null,style:"tall"},
+ {brand:"crystal",bl:"CRYSTAL",name:"Водни лири Crystal",model:"Различни размери и цветове",cat:"lira",btu:"по избор",energy:"—",eur:null,lv:null,badge:null,style:"tall"},
+ // Бойлери
+ {brand:"crystal",bl:"CRYSTAL",name:"Комбиниран бойлер · 1 увеличен топлообменник",model:"160 L",cat:"boiler",btu:"160 литра",energy:"—",eur:null,lv:null,badge:null,style:"tall"},
+ {brand:"crystal",bl:"CRYSTAL",name:"Комбиниран бойлер · 1 увеличен топлообменник",model:"200 L",cat:"boiler",btu:"200 литра",energy:"—",eur:null,lv:null,badge:null,style:"tall"},
+ {brand:"crystal",bl:"CRYSTAL",name:"Комбиниран бойлер · 1 увеличен топлообменник",model:"300 L",cat:"boiler",btu:"300 литра",energy:"—",eur:null,lv:null,badge:null,style:"tall"},
+ {brand:"crystal",bl:"CRYSTAL",name:"Комбиниран бойлер · 1 увеличен топлообменник",model:"400 L",cat:"boiler",btu:"400 литра",energy:"—",eur:null,lv:null,badge:null,style:"tall"},
+ {brand:"crystal",bl:"CRYSTAL",name:"Комбиниран бойлер · 1 увеличен топлообменник",model:"500 L",cat:"boiler",btu:"500 литра",energy:"—",eur:null,lv:null,badge:null,style:"tall"},
+ {brand:"crystal",bl:"CRYSTAL",name:"Комбиниран бойлер · 2 увеличени топлообменника",model:"200 L",cat:"boiler",btu:"200 литра",energy:"—",eur:null,lv:null,badge:null,style:"tall"},
+ {brand:"crystal",bl:"CRYSTAL",name:"Комбиниран бойлер · 2 увеличени топлообменника",model:"300 L",cat:"boiler",btu:"300 литра",energy:"—",eur:null,lv:null,badge:null,style:"tall"},
+ {brand:"crystal",bl:"CRYSTAL",name:"Комбиниран бойлер · 2 увеличени топлообменника",model:"400 L",cat:"boiler",btu:"400 литра",energy:"—",eur:null,lv:null,badge:null,style:"tall"},
+ {brand:"crystal",bl:"CRYSTAL",name:"Комбиниран бойлер · 2 увеличени топлообменника",model:"500 L",cat:"boiler",btu:"500 литра",energy:"—",eur:null,lv:null,badge:null,style:"tall"},
+ {brand:"crystal",bl:"CRYSTAL",name:"Бойлер с вграден буферен съд Crystal Azurite",model:"150/50",cat:"boiler",btu:"150 + 50 литра",energy:"—",eur:null,lv:null,badge:null,style:"tall"},
+ // Буферни съдове
+ {brand:"crystal",bl:"CRYSTAL",name:"Емайлиран буферен съд Crystal",model:"25 литра",cat:"bufer",btu:"25 L",energy:"—",eur:null,lv:null,badge:null,style:"tall"},
+ {brand:"crystal",bl:"CRYSTAL",name:"Емайлиран буферен съд Crystal",model:"50 литра",cat:"bufer",btu:"50 L",energy:"—",eur:null,lv:null,badge:null,style:"tall"},
+ {brand:"crystal",bl:"CRYSTAL",name:"Емайлиран буферен съд Crystal",model:"80 литра",cat:"bufer",btu:"80 L",energy:"—",eur:null,lv:null,badge:null,style:"tall"},
+ {brand:"crystal",bl:"CRYSTAL",name:"Емайлиран буферен съд Crystal",model:"100 литра",cat:"bufer",btu:"100 L",energy:"—",eur:null,lv:null,badge:null,style:"tall"},
+ {brand:"crystal",bl:"CRYSTAL",name:"Емайлиран буферен съд Crystal",model:"120 литра",cat:"bufer",btu:"120 L",energy:"—",eur:null,lv:null,badge:null,style:"tall"},
+ {brand:"crystal",bl:"CRYSTAL",name:"Емайлиран буферен съд Crystal",model:"160 литра",cat:"bufer",btu:"160 L",energy:"—",eur:null,lv:null,badge:null,style:"tall"},
+ {brand:"crystal",bl:"CRYSTAL",name:"Емайлиран буферен съд Crystal",model:"200 литра",cat:"bufer",btu:"200 L",energy:"—",eur:null,lv:null,badge:null,style:"tall"},
+ {brand:"crystal",bl:"CRYSTAL",name:"Емайлиран буферен съд Crystal",model:"300 литра",cat:"bufer",btu:"300 L",energy:"—",eur:null,lv:null,badge:null,style:"tall"},
+ {brand:"crystal",bl:"CRYSTAL",name:"Емайлиран буферен съд Crystal",model:"500 литра",cat:"bufer",btu:"500 L",energy:"—",eur:null,lv:null,badge:null,style:"tall"},
+ // Рекуператори
+ {brand:"crystal",bl:"CRYSTAL",name:"Рекуператор с японски топлообменник",model:"Crystal ECO 350",cat:"reku",btu:"350 м³/ч",energy:"—",eur:null,lv:null,badge:null,style:"box"},
+ {brand:"crystal",bl:"CRYSTAL",name:"Рекуператор с японски топлообменник",model:"Crystal ECO 500",cat:"reku",btu:"500 м³/ч",energy:"—",eur:null,lv:null,badge:null,style:"box"},
+ {brand:"crystal",bl:"CRYSTAL",name:"Рекуператор с японски топлообменник",model:"Crystal ECO 800",cat:"reku",btu:"800 м³/ч",energy:"—",eur:null,lv:null,badge:null,style:"box"},
+ {brand:"crystal",bl:"CRYSTAL",name:"Рекуператор с японски топлообменник",model:"Crystal ECO 1000",cat:"reku",btu:"1000 м³/ч",energy:"—",eur:null,lv:null,badge:null,style:"box"},
+ {brand:"crystal",bl:"CRYSTAL",name:"Рекуператор с японски топлообменник",model:"Crystal ECO 1500",cat:"reku",btu:"1500 м³/ч",energy:"—",eur:null,lv:null,badge:null,style:"box"},
+ {brand:"crystal",bl:"CRYSTAL",name:"Рекуператор с японски топлообменник",model:"Crystal ECO 2000",cat:"reku",btu:"2000 м³/ч",energy:"—",eur:null,lv:null,badge:null,style:"box"},
+ {brand:"crystal",bl:"CRYSTAL",name:"Саморегулиращ ел. нагревател Crystal",model:"PTC",cat:"reku",btu:"—",energy:"—",eur:null,lv:null,badge:null,style:"box"},
+ // ===== GREE =====
+ // Стенни
+ {brand:"gree",bl:"GREE",name:"GREE Airy · Wi-Fi, UV-C",model:"GWH09AVCXB-K6DNA1B (бял)",cat:"stenen",btu:"9 000 BTU",energy:"A+++",eur:"738",lv:"1 443,40",badge:null,style:""},
+ {brand:"gree",bl:"GREE",name:"GREE Airy · Wi-Fi, UV-C",model:"GWH12AVCXD-K6DNA1A (бял)",cat:"stenen",btu:"12 000 BTU",energy:"A+++",eur:"768",lv:"1 502,08",badge:null,style:""},
+ {brand:"gree",bl:"GREE",name:"GREE Airy · Wi-Fi, UV-C",model:"GWH18AVDXE-K6DNA1A (бял)",cat:"stenen",btu:"18 000 BTU",energy:"A+++",eur:"1 074",lv:"2 100,56",badge:null,style:""},
+ {brand:"gree",bl:"GREE",name:"GREE Airy · Wi-Fi, UV-C",model:"GWH24AVEXF-K6DNA1A (бял)",cat:"stenen",btu:"24 000 BTU",energy:"A+++",eur:"1 320",lv:"2 581,70",badge:null,style:""},
+ {brand:"gree",bl:"GREE",name:"GREE Amber Nordic · Wi-Fi, до -30°C",model:"GWH09YD-S6DBA1A",cat:"stenen",btu:"9 000 BTU",energy:"A+++",eur:"996",lv:"1 948,01",badge:"ХИТ",style:""},
+ {brand:"gree",bl:"GREE",name:"GREE Amber Nordic · Wi-Fi, до -30°C",model:"GWH12YD-S6DBA1A",cat:"stenen",btu:"12 000 BTU",energy:"A+++",eur:"1 068",lv:"2 088,83",badge:"ХИТ",style:""},
+ {brand:"gree",bl:"GREE",name:"GREE Amber Nordic · Wi-Fi, до -30°C",model:"GWH18YE-S6DBA1B",cat:"stenen",btu:"18 000 BTU",energy:"A++",eur:"1 284",lv:"2 511,29",badge:null,style:""},
+ {brand:"gree",bl:"GREE",name:"GREE Amber Nordic · Wi-Fi, до -30°C",model:"GWH24YE-S6DBA1A",cat:"stenen",btu:"24 000 BTU",energy:"A++",eur:"1 614",lv:"3 156,71",badge:null,style:""},
+ {brand:"gree",bl:"GREE",name:"GREE Clivia · Wi-Fi, UV-C",model:"GWH09AUCXB-K6DNA2A",cat:"stenen",btu:"9 000 BTU",energy:"A++",eur:"630",lv:"1 232,17",badge:"ИЗГОДНО",style:""},
+ {brand:"gree",bl:"GREE",name:"GREE Clivia · Wi-Fi, UV-C",model:"GWH12AUCXB-K6DNA2A",cat:"stenen",btu:"12 000 BTU",energy:"A++",eur:"654",lv:"1 279,11",badge:"ИЗГОДНО",style:""},
+ {brand:"gree",bl:"GREE",name:"GREE Clivia · Wi-Fi, UV-C",model:"GWH18AUDXD-K6DNA2A",cat:"stenen",btu:"18 000 BTU",energy:"A++",eur:"960",lv:"1 877,60",badge:null,style:""},
+ {brand:"gree",bl:"GREE",name:"GREE Clivia · Wi-Fi, UV-C",model:"GWH24AUDXF-K6DNA2A",cat:"stenen",btu:"24 000 BTU",energy:"A++",eur:"1 224",lv:"2 393,94",badge:null,style:""},
+ {brand:"gree",bl:"GREE",name:"GREE Pular II · Wi-Fi",model:"GWH09AGBXB-K6DNA1A",cat:"stenen",btu:"9 000 BTU",energy:"A++",eur:"540",lv:"1 056,15",badge:"ИЗГОДНО",style:""},
+ {brand:"gree",bl:"GREE",name:"GREE Pular II · Wi-Fi",model:"GWH12AGCXB-K6DNA1A",cat:"stenen",btu:"12 000 BTU",energy:"A++",eur:"570",lv:"1 114,82",badge:"ИЗГОДНО",style:""},
+ {brand:"gree",bl:"GREE",name:"GREE Charmo R290",model:"хладилен агент R290",cat:"stenen",btu:"9–24 000 BTU",energy:"A+++",eur:null,lv:null,badge:"НОВО",style:""},
+ {brand:"gree",bl:"GREE",name:"GREE S-COOL",model:"моно-сплит, стенен",cat:"stenen",btu:"9–24 000 BTU",energy:"A+++",eur:null,lv:null,badge:"НОВО",style:""},
+ {brand:"gree",bl:"GREE",name:"GREE Soyal II",model:"моно-сплит, стенен",cat:"stenen",btu:"9–24 000 BTU",energy:"A++",eur:null,lv:null,badge:null,style:""},
+ {brand:"gree",bl:"GREE",name:"GREE Pular",model:"моно-сплит, стенен",cat:"stenen",btu:"9–24 000 BTU",energy:"A++",eur:null,lv:null,badge:null,style:""},
+ // Конзолни
+ {brand:"gree",bl:"GREE",name:"GREE GEH II · конзола Inverter",model:"GEH II",cat:"konzolen",btu:"9–18 000 BTU",energy:"A++",eur:null,lv:null,badge:null,style:"floor"},
+ // Колонни
+ {brand:"gree",bl:"GREE",name:"GREE I-Shine · колонен инвертор",model:"I-Shine",cat:"kolonen",btu:"24–48 000 BTU",energy:"A++",eur:null,lv:null,badge:null,style:"tall"},
+ {brand:"gree",bl:"GREE",name:"GREE T-Fresh · колонен инвертор",model:"T-Fresh",cat:"kolonen",btu:"24–48 000 BTU",energy:"A++",eur:null,lv:null,badge:null,style:"tall"},
+ // Термопомпи GREE
+ {brand:"gree",bl:"GREE",name:"Термопомпа GREE Versati IV · моноблок",model:"GRS-CQ4-1 / CQ4-2",cat:"termo",btu:"4–16 kW",energy:"A+++",eur:null,lv:null,badge:null,style:"box"},
+ {brand:"gree",bl:"GREE",name:"Термопомпа GREE Versati IV · сплит",model:"GRS-CQ4-3",cat:"termo",btu:"4–16 kW",energy:"A+++",eur:null,lv:null,badge:null,style:"box"},
+ {brand:"gree",bl:"GREE",name:"Термопомпа GREE Versati IV · с вграден бойлер",model:"GRS-CQ4-4",cat:"termo",btu:"4–16 kW",energy:"A+++",eur:null,lv:null,badge:"НОВО",style:"box"},
+ {brand:"gree",bl:"GREE",name:"Термопомпа GREE Versati V · моноблок",model:"GRS-CQ5-1",cat:"termo",btu:"4–16 kW",energy:"A+++",eur:null,lv:null,badge:"НОВО",style:"box"},
+ {brand:"gree",bl:"GREE",name:"Термопомпен бойлер GREE",model:"GRS-TD",cat:"termo",btu:"—",energy:"—",eur:null,lv:null,badge:null,style:"tall"},
+ {brand:"gree",bl:"GREE",name:"Термопомпа за басейни GREE Flyarm",model:"GRS-CP",cat:"termo",btu:"—",energy:"—",eur:null,lv:null,badge:null,style:"box"},
+ // ===== VIESSMANN =====
+ // Климатици
+ {brand:"viessmann",bl:"VIESSMANN",name:"Viessmann Vitoclima 230-S",model:"моно-сплит, стенен",cat:"stenen",btu:"9–24 000 BTU",energy:"A+++",eur:null,lv:null,badge:null,style:""},
+ {brand:"viessmann",bl:"VIESSMANN",name:"Viessmann Vitoclima 300-S · мултисплит",model:"до 5 вътрешни тела",cat:"multi",btu:"по конфигурация",energy:"A++",eur:null,lv:null,badge:null,style:"box"},
+ // Термопомпи
+ {brand:"viessmann",bl:"VIESSMANN",name:"Термопомпа Viessmann Vitocal 100-S",model:"сплит, въздух-вода",cat:"termo",btu:"4.0–16.0 kW",energy:"A++",eur:null,lv:null,badge:null,style:"box"},
+ {brand:"viessmann",bl:"VIESSMANN",name:"Термопомпа Viessmann Vitocal 200-S",model:"сплит, въздух-вода, с охлаждане",cat:"termo",btu:"3.2–14.7 kW",energy:"A+++",eur:null,lv:null,badge:"НОВО",style:"box"},
+ // Газови котли
+ {brand:"viessmann",bl:"VIESSMANN",name:"Газов кондензен котел Viessmann Vitodens 100-W",model:"стенен, готов за 20% H₂",cat:"kotel",btu:"3.2–32 kW",energy:"A",eur:null,lv:null,badge:null,style:"box"},
+ {brand:"viessmann",bl:"VIESSMANN",name:"Газов кондензен котел Viessmann Vitodens 111-W",model:"с вграден бойлер",cat:"kotel",btu:"3.2–32 kW",energy:"A",eur:null,lv:null,badge:null,style:"box"},
+ {brand:"viessmann",bl:"VIESSMANN",name:"Електрически котел Viessmann Vitotron 100",model:"стенен",cat:"kotel",btu:"4–24 kW",energy:"—",eur:null,lv:null,badge:null,style:"box"},
+ // Соларни системи
+ {brand:"viessmann",bl:"VIESSMANN",name:"Плосък слънчев колектор Viessmann Vitosol 200-FM",model:"ThermProtect, 2.31 м²",cat:"solar",btu:"2.31 м²",energy:"—",eur:null,lv:null,badge:null,style:"cass"},
+ // Бойлери
+ {brand:"viessmann",bl:"VIESSMANN",name:"Бойлер за топла вода Viessmann Vitocell",model:"различни обеми",cat:"boiler",btu:"100–500 L",energy:"—",eur:null,lv:null,badge:null,style:"tall"},
+ // ===== IMMERGAS =====
+ // Газови кондензни котли
+ {brand:"immergas",bl:"IMMERGAS",name:"Газов кондензен котел Immergas Victrix Tera 24 Plus",model:"едноконтурен, с димоотвод",cat:"kotel",btu:"24 kW",energy:"A",eur:"1 304",lv:"2 550,00",badge:null,style:"box"},
+ {brand:"immergas",bl:"IMMERGAS",name:"Газов кондензен котел Immergas Victrix Tera V2 28",model:"двуконтурен, с димоотвод",cat:"kotel",btu:"24/28 kW",energy:"A",eur:null,lv:null,badge:null,style:"box"},
+ {brand:"immergas",bl:"IMMERGAS",name:"Газов кондензен котел Immergas Victrix Omnia",model:"за подмяна на стар котел",cat:"kotel",btu:"25 kW",energy:"A",eur:null,lv:null,badge:null,style:"box"},
+ // Термопомпи
+ {brand:"immergas",bl:"IMMERGAS",name:"Термопомпа Immergas Magis Pro 9 V2",model:"сплит, въздух-вода",cat:"termo",btu:"9 kW",energy:"A+++",eur:"4 152",lv:"8 121,00",badge:null,style:"box"},
+ {brand:"immergas",bl:"IMMERGAS",name:"Термопомпа Immergas Magis Pro V2",model:"сплит · 4 / 6 / 12 / 14 / 16 kW",cat:"termo",btu:"4–16 kW",energy:"A+++",eur:null,lv:null,badge:null,style:"box"},
+ {brand:"immergas",bl:"IMMERGAS",name:"Термопомпа Immergas Magis M",model:"инверторен моноблок, въздух-вода",cat:"termo",btu:"4–16 kW",energy:"A+++",eur:null,lv:null,badge:"НОВО",style:"box"},
+ {brand:"immergas",bl:"IMMERGAS",name:"Хибридна система Immergas Magis Victrix",model:"термопомпа + газов котел",cat:"termo",btu:"24 kW",energy:"A+++",eur:null,lv:null,badge:null,style:"box"},
+ // ===== WARMHAUS =====
+ // Кондензни двуконтурни котли
+ {brand:"warmhaus",bl:"WARMHAUS",name:"Кондензен котел Warmhaus Minerwa",model:"двуконтурен, тъч панел, 1:10 модулация",cat:"kotel",btu:"25 kW",energy:"A",eur:null,lv:null,badge:"НОВО",style:"box"},
+ {brand:"warmhaus",bl:"WARMHAUS",name:"Кондензен котел Warmhaus Ewa",model:"двуконтурен, 1:7 модулация",cat:"kotel",btu:"20 / 24 kW",energy:"A",eur:null,lv:null,badge:null,style:"box"},
+ {brand:"warmhaus",bl:"WARMHAUS",name:"Кондензен котел Warmhaus Enerwa",model:"двуконтурен, 1:10 модулация",cat:"kotel",btu:"24 / 28 / 33 kW",energy:"A",eur:null,lv:null,badge:null,style:"box"},
+ {brand:"warmhaus",bl:"WARMHAUS",name:"Кондензен котел Warmhaus Enerwa Plus",model:"двуконтурен, до 45 kW",cat:"kotel",btu:"24–45 kW",energy:"A",eur:null,lv:null,badge:null,style:"box"},
+ {brand:"warmhaus",bl:"WARMHAUS",name:"Търговски котел Warmhaus",model:"стоманен / алуминиев топлообменник",cat:"kotel",btu:"по проект",energy:"A",eur:null,lv:null,badge:null,style:"box"},
+ {brand:"warmhaus",bl:"WARMHAUS",name:"Смарт стаен термостат Warmhaus RecoWa",model:"Wi-Fi, управление от телефон",cat:"kotel",btu:"—",energy:"—",eur:null,lv:null,badge:null,style:"cass"},
+ // Радиатори
+ {brand:"warmhaus",bl:"WARMHAUS",name:"Стоманени панелни радиатори Warmhaus",model:"различни размери",cat:"radiator",btu:"по размер",energy:"—",eur:null,lv:null,badge:null,style:"floor"},
+ {brand:"warmhaus",bl:"WARMHAUS",name:"Декоративни панелни радиатори Warmhaus",model:"различни размери",cat:"radiator",btu:"по размер",energy:"—",eur:null,lv:null,badge:null,style:"floor"},
+ {brand:"warmhaus",bl:"WARMHAUS",name:"Дизайнерски радиатори Warmhaus",model:"вертикални, различни цветове",cat:"radiator",btu:"по размер",energy:"—",eur:null,lv:null,badge:null,style:"tall"},
+ // Лири за баня
+ {brand:"warmhaus",bl:"WARMHAUS",name:"Лири за баня Warmhaus",model:"различни размери",cat:"lira",btu:"по размер",energy:"—",eur:null,lv:null,badge:null,style:"tall"},
+ // Водонагреватели
+ {brand:"warmhaus",bl:"WARMHAUS",name:"Газов проточен водонагревател Warmhaus",model:"херметичен",cat:"boiler",btu:"—",energy:"—",eur:null,lv:null,badge:null,style:"box"}
+];
+
+const grid=document.getElementById('productGrid');
+let curBrand='all',curCat='all';
+function render(list){
+  grid.innerHTML=list.map(p=>`
+   <div class="card">
+     <div class="card-img">
+       ${p.badge?`<span class="badge">${p.badge}</span>`:''}
+       <div class="unit ${p.style}" data-brand="${p.bl}"></div>
+     </div>
+     <div class="card-body">
+       <h3>${p.name}</h3>
+       <div class="model">${p.model}</div>
+       <ul class="specs">
+         <li>Мощност / обем <b>${p.btu}</b></li>
+         <li>Енергиен клас <b>${p.energy}</b></li>
+       </ul>
+       <div class="price-row">
+         <div class="price">${p.eur?`${p.eur} €<small>${p.lv} лв.</small>`:`<span style="font-size:.95rem">По запитване</span>`}</div>
+         <a href="#inquiry" class="btn btn-blue btn-sm" onclick="preselect('${p.model}')">Запитване</a>
+       </div>
+     </div>
+   </div>`).join('');
+}
+function applyFilters(){
+  render(products.filter(p=>(curBrand==='all'||p.brand===curBrand)&&(curCat==='all'||p.cat===curCat)));
+}
+function setBrand(b,btn){
+  curBrand=b;
+  document.querySelectorAll('#brandFilters button').forEach(x=>x.classList.remove('active'));
+  if(btn)btn.classList.add('active');
+  applyFilters();
+}
+function setCat(c,btn){
+  curCat=c;
+  document.querySelectorAll('#filters button').forEach(x=>x.classList.remove('active'));
+  if(btn)btn.classList.add('active');
+  applyFilters();
+}
+function preselect(model){
+  document.getElementById('fMsg').value='Интересувам се от модел: '+model;
+}
+function sendInquiry(e){
+  e.preventDefault();
+  const name=document.getElementById('fName').value;
+  const phone=document.getElementById('fPhone').value;
+  const email=document.getElementById('fEmail').value;
+  const prod=document.getElementById('fProduct').value;
+  const msg=document.getElementById('fMsg').value;
+  const body=`Име: ${name}%0AТелефон: ${phone}%0AИмейл: ${email}%0AИнтерес: ${prod}%0A%0A${encodeURIComponent(msg)}`;
+  window.location.href=`mailto:antalavichev_2018@abv.bg?subject=${encodeURIComponent('Запитване от сайта — '+name)}&body=${body}`;
+  document.getElementById('formOk').style.display='block';
+  setTimeout(()=>document.getElementById('formOk').style.display='none',6000);
+  return false;
+}
+render(products);
+document.getElementById('nav').addEventListener('click',()=>document.getElementById('nav').classList.remove('open'));
+</script>
+</body>
+</html>
